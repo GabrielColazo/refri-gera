@@ -1,0 +1,414 @@
+// =============================================
+// _hero.scss — REFRI-GERA
+// =============================================
+
+@use 'variables' as *;
+
+// ---------------------------------------------
+// SECCIÓN HERO — contenedor principal
+// ---------------------------------------------
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: $color-primary-dark;
+  overflow: hidden;
+}
+
+// ---------------------------------------------
+// FONDO — imagen + gradiente overlay
+// ---------------------------------------------
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba($color-primary-dark, 0.92) 0%,
+      rgba($color-primary, 0.75)      50%,
+      rgba($color-accent-dark, 0.18)  100%
+    ),
+    url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=80')
+    center / cover no-repeat;
+  z-index: 0;
+}
+
+// ---------------------------------------------
+// PARTÍCULAS — copos de nieve animados
+// ---------------------------------------------
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  color: $color-accent;
+  opacity: 0;
+  animation: fall-snow linear infinite;
+
+  @keyframes fall-snow {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px) rotate(0deg);
+    }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.3; }
+    100% {
+      opacity: 0;
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+}
+
+// ---------------------------------------------
+// CONTENIDO — z-index sobre el fondo
+// ---------------------------------------------
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+// ---------------------------------------------
+// BADGE — matrícula
+// ---------------------------------------------
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba($color-accent, 0.15);
+  border: 1px solid rgba($color-accent, 0.35);
+  color: $color-accent;
+  font-family: $font-display;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: $radius-full;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  // Animación de entrada
+  animation: fade-down 0.7s ease both;
+}
+
+// ---------------------------------------------
+// CAJA LOGO — recuadro blanco con el nombre
+// ---------------------------------------------
+.hero-logo-box {
+  display: inline-block;
+  background: rgba(#fff, 0.96);
+  border: 3px solid $color-primary;
+  border-radius: $radius-sm;
+  padding: 10px 28px;
+  margin-bottom: 1.5rem;
+  animation: fade-down 0.8s 0.1s ease both;
+
+  h1 {
+    font-size: $font-size-h1;
+    font-weight: $font-weight-black;
+    color: $color-primary-dark;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+
+    span {
+      color: $color-accent-dark;
+    }
+  }
+}
+
+// ---------------------------------------------
+// TAGLINE — subtítulo principal
+// ---------------------------------------------
+.hero-tagline {
+  font-family: $font-display;
+  font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  font-weight: $font-weight-semibold;
+  color: $color-white;
+  line-height: 1.25;
+  margin-bottom: 1.75rem;
+  animation: fade-down 0.8s 0.2s ease both;
+}
+
+// ---------------------------------------------
+// LISTA DE SERVICIOS DESTACADOS
+// ---------------------------------------------
+.hero-features {
+  margin-bottom: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fade-down 0.8s 0.3s ease both;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba($color-white, 0.9);
+    font-size: $font-size-md;
+    font-weight: $font-weight-regular;
+    line-height: 1.5;
+
+    i {
+      color: $color-accent;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// ---------------------------------------------
+// BOTONES DE ACCIÓN
+// ---------------------------------------------
+.hero-btns {
+  animation: fade-down 0.8s 0.4s ease both;
+}
+
+.btn-primary-rg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: $color-accent;
+  color: $color-primary-dark;
+  font-family: $font-display;
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: $radius-sm;
+  border: none;
+  cursor: pointer;
+  transition: background-color $transition-base,
+              transform $transition-base,
+              box-shadow $transition-base;
+  box-shadow: 0 4px 20px rgba($color-accent, 0.4);
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba($color-accent, 0.5);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}
+
+.btn-outline-rg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: $color-white;
+  font-family: $font-display;
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 13px 30px;
+  border-radius: $radius-sm;
+  border: 2px solid rgba($color-white, 0.45);
+  cursor: pointer;
+  transition: border-color $transition-base,
+              color $transition-base,
+              transform $transition-base;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $color-accent;
+    color: $color-accent;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}
+
+// ---------------------------------------------
+// INDICADOR DE SCROLL
+// ---------------------------------------------
+.scroll-indicator {
+  position: absolute;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: bounce-down 2s ease infinite;
+
+  span {
+    font-family: $font-display;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-accent;
+    opacity: 0.7;
+  }
+
+  i {
+    color: $color-accent;
+    font-size: 1rem;
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateX(-50%) translateY(0);   }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+// ---------------------------------------------
+// BARRA CAIM — parte inferior del hero
+// ---------------------------------------------
+.hero-caim {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background: rgba($color-primary-dark, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 2px solid rgba($color-accent, 0.3);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.caim-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  i {
+    font-size: 1.8rem;
+    color: $color-accent;
+  }
+}
+
+.caim-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $color-primary, $color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-display;
+  font-size: 0.65rem;
+  font-weight: $font-weight-black;
+  color: $color-white;
+  letter-spacing: 0.05em;
+  text-align: center;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.caim-text {
+  font-size: 0.88rem;
+  color: rgba($color-white, 0.85);
+  line-height: 1.4;
+
+  strong {
+    display: block;
+    color: $color-accent;
+    font-family: $font-display;
+    font-size: 0.95rem;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.03em;
+  }
+}
+
+.caim-separator {
+  width: 1px;
+  height: 36px;
+  background: rgba($color-white, 0.2);
+  flex-shrink: 0;
+}
+
+// ---------------------------------------------
+// ANIMACIONES DE ENTRADA
+// ---------------------------------------------
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ---------------------------------------------
+// RESPONSIVE
+// ---------------------------------------------
+@media (max-width: 991.98px) {
+  .hero-content {
+    padding-top: 110px;
+    padding-bottom: 160px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    justify-content: center;
+  }
+
+  .hero-features {
+    text-align: left;
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .hero-btns {
+    justify-content: center;
+  }
+
+  .scroll-indicator {
+    bottom: 130px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-logo-box {
+    padding: 8px 18px;
+  }
+
+  .hero-caim {
+    padding: 14px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .caim-separator {
+    display: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}

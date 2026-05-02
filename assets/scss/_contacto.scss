@@ -1,0 +1,369 @@
+// =============================================
+// _contacto.scss — REFRI-GERA
+// =============================================
+
+@use 'variables' as *;
+
+// ---------------------------------------------
+// SECCIÓN CONTACTO — contenedor principal
+// ---------------------------------------------
+#contacto {
+  background: linear-gradient(
+    135deg,
+    $color-primary-dark 0%,
+    $color-primary      100%
+  );
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px;      // Reducido para menos separación con sobremi
+  padding-bottom: 80px;
+
+  // Círculos decorativos
+  &::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: rgba($color-accent, 0.07);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -60px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba($color-accent, 0.05);
+    pointer-events: none;
+  }
+
+  // Overrides para fondo oscuro
+  .section-title  { color: $color-white; }
+  .section-subtitle { color: rgba($color-white, 0.65); }
+  .divider {
+    background: linear-gradient(90deg, $color-accent, rgba($color-white, 0.4));
+  }
+}
+
+// ---------------------------------------------
+// COLUMNA MAPA
+// ---------------------------------------------
+.contact-map-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 14px;
+}
+
+.contact-map-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(#fff, 0.08);
+  border: 1px solid rgba($color-accent, 0.25);
+  border-radius: $radius-md;
+  padding: 14px 18px;
+
+  i {
+    font-size: 1.6rem;
+    color: $color-accent;
+    flex-shrink: 0;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  strong {
+    font-family: $font-display;
+    font-size: 1rem;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    letter-spacing: 0.03em;
+  }
+
+  span {
+    font-size: $font-size-sm;
+    color: rgba($color-white, 0.6);
+  }
+}
+
+.contact-map-frame {
+  flex: 1;
+  min-height: 300px;
+  border-radius: $radius-md;
+  overflow: hidden;
+  border: 2px solid rgba($color-accent, 0.2);
+  box-shadow: $shadow-card;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    display: block;
+    filter: grayscale(20%) contrast(1.05);
+  }
+}
+
+.contact-map-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.contact-map-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(#fff, 0.08);
+  border: 1px solid rgba(#fff, 0.12);
+  border-radius: $radius-full;
+  padding: 8px 16px;
+  font-size: $font-size-sm;
+  color: rgba($color-white, 0.85);
+  flex: 1;
+  min-width: 140px;
+
+  i {
+    color: $color-accent;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  a {
+    color: rgba($color-white, 0.85);
+    text-decoration: none;
+    transition: color $transition-base;
+    font-weight: $font-weight-semibold;
+
+    &:hover { color: $color-accent; }
+  }
+}
+
+// ---------------------------------------------
+// COLUMNA FORMULARIO
+// ---------------------------------------------
+.contact-form-wrap {
+  background: rgba(#fff, 0.06);
+  border: 1px solid rgba(#fff, 0.12);
+  border-radius: $radius-lg;
+  padding: 36px 32px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-form-title {
+  font-family: $font-display;
+  font-size: 1.4rem;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  i {
+    color: $color-accent;
+    font-size: 1.3rem;
+  }
+}
+
+// ---------------------------------------------
+// GRUPOS DE FORMULARIO
+// ---------------------------------------------
+.form-group {
+  margin-bottom: 18px;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: $font-display;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.7);
+    margin-bottom: 8px;
+
+    i {
+      color: $color-accent;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// ---------------------------------------------
+// INPUTS Y TEXTAREA
+// ---------------------------------------------
+.form-control-rg {
+  width: 100%;
+  background: rgba(#fff, 0.07);
+  border: 1px solid rgba(#fff, 0.15);
+  color: $color-white;
+  font-family: $font-body;
+  font-size: $font-size-md;
+  padding: 14px 16px;
+  border-radius: $radius-sm;
+  outline: none;
+  transition: border-color $transition-base,
+              background-color $transition-base,
+              box-shadow $transition-base;
+  appearance: none;
+  -webkit-appearance: none;
+
+  &::placeholder {
+    color: rgba($color-white, 0.3);
+  }
+
+  &:focus {
+    border-color: $color-accent;
+    background: rgba(#fff, 0.12);
+    box-shadow: 0 0 0 3px rgba($color-accent, 0.18);
+  }
+
+  // Línea inferior animada al focus
+  &:focus + .input-line {
+    transform: scaleX(1);
+  }
+}
+
+textarea.form-control-rg {
+  resize: vertical;
+  min-height: 130px;
+}
+
+// ---------------------------------------------
+// MENSAJES ÉXITO / ERROR
+// ---------------------------------------------
+.form-success,
+.form-error {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: $radius-sm;
+  font-family: $font-display;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+
+  &.visible { display: flex; }
+
+  i { font-size: 1.2rem; flex-shrink: 0; }
+}
+
+.form-success {
+  background: rgba(#25D366, 0.15);
+  border: 1px solid rgba(#25D366, 0.4);
+  color: #a8f0c6;
+}
+
+.form-error {
+  background: rgba(#ff6b6b, 0.15);
+  border: 1px solid rgba(#ff6b6b, 0.4);
+  color: #ffb3b3;
+}
+
+// ---------------------------------------------
+// BOTÓN ENVIAR
+// ---------------------------------------------
+.btn-send {
+  width: 100%;
+  background: linear-gradient(135deg, $color-accent, $color-accent-dark);
+  color: $color-primary-dark;
+  font-family: $font-display;
+  font-size: 1.05rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 15px;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  transition: transform $transition-base,
+              box-shadow $transition-base,
+              opacity $transition-base;
+  box-shadow: 0 4px 20px rgba($color-accent, 0.35);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba($color-accent, 0.5);
+    opacity: 0.92;
+  }
+
+  &:active { transform: translateY(0); }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-white;
+    outline-offset: 3px;
+  }
+}
+
+// ---------------------------------------------
+// RESPONSIVE
+// ---------------------------------------------
+@media (max-width: 991.98px) {
+  .contact-map-frame {
+    min-height: 260px;
+
+    iframe { min-height: 260px; }
+  }
+
+  .contact-form-wrap {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #contacto {
+    padding-top: 50px;
+    padding-bottom: 60px;
+
+    &::before { width: 200px; height: 200px; }
+    &::after  { width: 180px; height: 180px; }
+  }
+
+  .contact-map-frame {
+    min-height: 220px;
+    iframe { min-height: 220px; }
+  }
+
+  .contact-form-wrap {
+    padding: 24px 18px;
+  }
+
+  .contact-map-badges {
+    flex-direction: column;
+  }
+
+  .contact-map-badge {
+    min-width: unset;
+  }
+}

@@ -1,0 +1,23 @@
+// ================================
+// REFRI-GERA - Main SCSS
+// ================================
+
+// Variables — siempre primero
+@use 'variables' as *;
+
+// Base
+@use 'base';
+
+// Componentes
+@use 'navbar';
+@use 'hero';
+@use 'servicios';
+@use 'proyectos';
+@use 'whatsapp';
+@use 'sobremi';
+@use 'contacto';
+@use 'footer';
+// @use 'modal';
+
+// Google Fonts — va después de los @use
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap');

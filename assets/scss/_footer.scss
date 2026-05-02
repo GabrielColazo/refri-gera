@@ -1,0 +1,246 @@
+// =============================================
+// _footer.scss — REFRI-GERA
+// =============================================
+
+@use 'variables' as *;
+
+// ---------------------------------------------
+// FOOTER — contenedor principal
+// ---------------------------------------------
+footer {
+  background-color: $color-dark;
+  padding-top: 60px;
+  padding-bottom: 0;
+}
+
+// ---------------------------------------------
+// MARCA / LOGO
+// ---------------------------------------------
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+
+  .bi-snow {
+    font-size: 1.6rem;
+    color: $color-accent;
+  }
+}
+
+.footer-brand-name {
+  font-family: $font-display;
+  font-size: 1.6rem;
+  font-weight: $font-weight-black;
+  color: $color-white;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+
+  span {
+    color: $color-accent;
+  }
+}
+
+// ---------------------------------------------
+// DESCRIPCIÓN
+// ---------------------------------------------
+.footer-desc {
+  font-size: $font-size-sm;
+  color: rgba($color-white, 0.5);
+  line-height: 1.65;
+  max-width: 300px;
+  margin-top: 4px;
+}
+
+// ---------------------------------------------
+// SEPARADOR ENTRE COLUMNAS
+// ---------------------------------------------
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba($color-white, 0.08);
+  margin: 0;
+}
+
+// ---------------------------------------------
+// TÍTULOS DE COLUMNAS
+// ---------------------------------------------
+.footer-heading {
+  font-family: $font-display;
+  font-size: 0.85rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+
+  // Línea decorativa bajo el título
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: $color-accent;
+    border-radius: 2px;
+  }
+}
+
+// ---------------------------------------------
+// LINKS DE NAVEGACIÓN
+// ---------------------------------------------
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  a {
+    font-size: $font-size-sm;
+    color: rgba($color-white, 0.55);
+    transition: color $transition-base,
+                padding-left $transition-base;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+
+    i {
+      font-size: 0.7rem;
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      color: $color-accent;
+      padding-left: 4px;
+
+      i {
+        transform: translateX(3px);
+      }
+    }
+  }
+}
+
+// ---------------------------------------------
+// CONTACTO EN FOOTER
+// ---------------------------------------------
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-style: normal;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: $font-size-sm;
+  color: rgba($color-white, 0.55);
+
+  i {
+    color: $color-accent;
+    font-size: 1rem;
+    flex-shrink: 0;
+    width: 16px;
+    text-align: center;
+  }
+
+  a {
+    color: rgba($color-white, 0.55);
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+// ---------------------------------------------
+// CERTIFICACIÓN CAIM EN FOOTER
+// ---------------------------------------------
+.footer-caim {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: rgba($color-accent, 0.06);
+  border: 1px solid rgba($color-accent, 0.15);
+  border-radius: $radius-md;
+
+  .caim-circle {
+    width: 38px;
+    height: 38px;
+    font-size: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  p {
+    font-size: 0.78rem;
+    color: rgba($color-white, 0.5);
+    line-height: 1.4;
+
+    strong {
+      display: block;
+      color: rgba($color-white, 0.8);
+      font-family: $font-display;
+      font-size: 0.85rem;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+// ---------------------------------------------
+// BARRA INFERIOR — COPYRIGHT
+// ---------------------------------------------
+.footer-bottom {
+  border-top: 1px solid rgba($color-white, 0.08);
+  padding: 20px 0;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  p {
+    font-size: 0.82rem;
+    color: rgba($color-white, 0.35);
+    line-height: 1.4;
+
+    span {
+      color: $color-accent;
+    }
+  }
+}
+
+// ---------------------------------------------
+// RESPONSIVE
+// ---------------------------------------------
+@media (max-width: 991.98px) {
+  footer {
+    padding-top: 50px;
+  }
+
+  .footer-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    margin-top: 36px;
+  }
+
+  .footer-caim {
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,119 @@
+// =============================================
+// _whatsapp.scss — REFRI-GERA
+// =============================================
+
+@use 'variables' as *;
+
+// ---------------------------------------------
+// BOTÓN FLOTANTE WHATSAPP
+// ---------------------------------------------
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: $z-wa-btn;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: $color-whatsapp;
+  color: #fff;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: $shadow-wa;
+  transition: transform $transition-base,
+              background-color $transition-base,
+              box-shadow $transition-base;
+
+  // Animación de pulso para llamar la atención
+  animation: pulse-wa 2.5s ease infinite;
+
+  &:hover {
+    background-color: $color-whatsapp-dark;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba($color-whatsapp, 0.6);
+    animation: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-whatsapp;
+    outline-offset: 4px;
+  }
+
+  i {
+    line-height: 1;
+  }
+}
+
+// ---------------------------------------------
+// ANIMACIÓN PULSO
+// ---------------------------------------------
+@keyframes pulse-wa {
+  0%, 100% {
+    box-shadow: $shadow-wa;
+  }
+  50% {
+    box-shadow: 0 4px 32px rgba($color-whatsapp, 0.75),
+                0 0 0 10px rgba($color-whatsapp, 0.1);
+  }
+}
+
+// ---------------------------------------------
+// TOOLTIP — "¡Escribinos!"
+// ---------------------------------------------
+.whatsapp-float::before {
+  content: '¡Escribinos!';
+  position: absolute;
+  right: calc(100% + 12px);
+  background-color: $color-whatsapp;
+  color: #fff;
+  font-family: $font-display;
+  font-size: 0.8rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: $radius-sm;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity $transition-base,
+              transform $transition-base;
+
+  // Flechita del tooltip
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: $color-whatsapp;
+  }
+}
+
+.whatsapp-float:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+// ---------------------------------------------
+// RESPONSIVE — un poco más chico en mobile
+// ---------------------------------------------
+@media (max-width: 575.98px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  // Ocultar tooltip en mobile (no hay hover)
+  .whatsapp-float::before {
+    display: none;
+  }
+}

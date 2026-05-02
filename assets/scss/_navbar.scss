@@ -1,0 +1,231 @@
+// =============================================
+// _navbar.scss — REFRI-GERA
+// =============================================
+
+@use 'variables' as *;
+
+// ---------------------------------------------
+// NAVBAR BASE
+// ---------------------------------------------
+#navbar {
+  padding: 0;
+  transition: background-color $transition-base,
+              box-shadow $transition-base,
+              padding $transition-base;
+
+ // Estado inicial: semitransparente oscuro (siempre visible)
+  background-color: rgba($color-primary-dark, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba($color-accent, 0.12);
+
+   // Estado al hacer scroll: sólida y más oscura
+  &.scrolled {
+    background-color: rgba($color-primary-dark, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(#000, 0.25);
+    border-bottom: 1px solid rgba($color-accent, 0.2);
+  }
+
+// ---------------------------------------------
+// CONTENEDOR INTERNO
+// ---------------------------------------------
+#navbar .container {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  transition: padding $transition-base;
+
+  #navbar.scrolled & {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+// ---------------------------------------------
+// MARCA / LOGO
+// ---------------------------------------------
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+
+  // Ícono copo de nieve
+  .bi-snow {
+    font-size: 1.8rem;
+    color: $color-accent;
+    animation: spin-snow 8s linear infinite;
+    display: inline-block;
+  }
+
+  // Texto del logo
+  span {
+    font-family: $font-display;
+    font-size: 1.75rem;
+    font-weight: $font-weight-black;
+    color: $color-white;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  // El guión en color acento
+  .brand-dash {
+    color: $color-accent;
+  }
+}
+
+@keyframes spin-snow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+// ---------------------------------------------
+// BOTÓN HAMBURGUESA — Bootstrap override
+// ---------------------------------------------
+.navbar-toggler {
+  border: 2px solid rgba($color-white, 0.4);
+  border-radius: $radius-sm;
+  padding: 6px 10px;
+  transition: border-color $transition-base,
+              background-color $transition-base;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($color-accent, 0.35);
+  }
+
+  &:hover {
+    border-color: $color-accent;
+    background-color: rgba($color-accent, 0.1);
+  }
+
+  // Ícono del hamburguesa en blanco
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28248%2C250%2C251%2C1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+// ---------------------------------------------
+// LINKS DE NAVEGACIÓN
+// ---------------------------------------------
+.navbar-nav {
+
+  .nav-item {
+
+    .nav-link {
+      font-family: $font-display;
+      font-size: 1rem;
+      font-weight: $font-weight-semibold;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba($color-white, 0.82);
+      padding: 8px 14px;
+      border-radius: $radius-sm;
+      transition: color $transition-base,
+                  background-color $transition-base;
+      position: relative;
+
+      // Línea animada debajo del link
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 50%;
+        right: 50%;
+        height: 2px;
+        background: $color-accent;
+        border-radius: 2px;
+        transition: left $transition-base, right $transition-base;
+      }
+
+      &:hover,
+      &.active {
+        color: $color-white;
+
+        &::after {
+          left: 14px;
+          right: 14px;
+        }
+      }
+    }
+  }
+}
+
+// ---------------------------------------------
+// BOTÓN CTA — WhatsApp en el navbar
+// ---------------------------------------------
+.nav-cta {
+  background-color: $color-accent !important;
+  color: $color-primary-dark !important;
+  font-weight: $font-weight-bold !important;
+  border-radius: $radius-sm !important;
+  padding: 9px 20px !important;
+  transition: background-color $transition-base,
+              color $transition-base,
+              transform $transition-base !important;
+
+  // Ocultar la línea animada en el CTA
+  &::after {
+    display: none !important;
+  }
+
+  &:hover {
+    background-color: $color-white !important;
+    color: $color-primary !important;
+    transform: translateY(-2px);
+  }
+}
+
+// ---------------------------------------------
+// MENÚ DESPLEGABLE MOBILE (collapse Bootstrap)
+// ---------------------------------------------
+@media (max-width: 991.98px) {
+
+  #navbar .container {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .navbar-collapse {
+    background-color: $color-primary-dark;
+    border-top: 1px solid rgba($color-white, 0.08);
+    padding: 16px 8px 24px;
+    margin-top: 8px;
+    border-radius: 0 0 $radius-md $radius-md;
+  }
+
+  .navbar-nav {
+    gap: 4px;
+
+    .nav-item .nav-link {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba($color-white, 0.07);
+      border-radius: 0;
+
+      &::after {
+        display: none;
+      }
+
+      &:hover {
+        background-color: rgba($color-accent, 0.08);
+        color: $color-accent;
+        padding-left: 22px;
+      }
+    }
+
+    // CTA en mobile: ancho completo
+    .nav-cta {
+      margin-top: 12px;
+      text-align: center;
+      border-radius: $radius-sm !important;
+      padding: 12px 20px !important;
+      display: block;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+}

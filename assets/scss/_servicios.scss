@@ -1,0 +1,111 @@
+// =============================================
+// _servicios.scss — REFRI-GERA
+// =============================================
+
+@use 'variables' as *;
+
+// ---------------------------------------------
+// SECCIÓN SERVICIOS — contenedor principal
+// ---------------------------------------------
+#servicios {
+  background-color: $color-white;
+}
+
+// ---------------------------------------------
+// TARJETA DE SERVICIO
+// ---------------------------------------------
+.service-card {
+  background: #fff;
+  border-radius: $radius-md;
+  padding: 36px 28px;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-card;
+  transition: transform $transition-base,
+              box-shadow $transition-base,
+              border-color $transition-base;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  // Línea superior animada
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $color-accent, $color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-hover;
+    border-color: rgba($color-accent, 0.3);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      background-color: $color-primary;
+      color: $color-accent;
+    }
+  }
+}
+
+// ---------------------------------------------
+// ÍCONO DE SERVICIO
+// ---------------------------------------------
+.service-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-sm;
+  background-color: $color-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: $color-primary;
+  margin-bottom: 1.25rem;
+  transition: background-color $transition-base,
+              color $transition-base;
+  flex-shrink: 0;
+}
+
+// ---------------------------------------------
+// TEXTO DE LA TARJETA
+// ---------------------------------------------
+.service-card h3 {
+  font-family: $font-display;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.service-card p {
+  font-size: $font-size-sm;
+  color: $color-gray;
+  line-height: 1.65;
+}
+
+// ---------------------------------------------
+// RESPONSIVE
+// ---------------------------------------------
+@media (max-width: 767.98px) {
+  .service-card {
+    padding: 28px 22px;
+  }
+
+  .service-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 1.5rem;
+  }
+}

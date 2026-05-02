@@ -1,0 +1,103 @@
+// =============================================
+// _variables.scss — REFRI-GERA
+// =============================================
+
+// ---------------------------------------------
+// COLORES PRINCIPALES
+// ---------------------------------------------
+$color-primary:       #1B3A6B;   // Azul marino principal
+$color-primary-dark:  #0F2449;   // Azul marino oscuro (navbar, hero)
+$color-accent:        #4DB8FF;   // Celeste frío (highlights, íconos)
+$color-accent-dark:   #1A9AE0;   // Celeste más saturado (hover, links)
+
+// ---------------------------------------------
+// COLORES NEUTROS
+// ---------------------------------------------
+$color-dark:          #1A1F2E;   // Fondo oscuro (footer)
+$color-mid:           #2C3E50;   // Texto secundario / párrafos
+$color-light:         #ECF4FB;   // Fondo secciones claras
+$color-white:         #F8FAFB;   // Blanco base del sitio
+$color-gray:          #8899AA;   // Texto terciario / subtítulos
+$color-border:        #D0DDE8;   // Bordes de tarjetas
+
+// ---------------------------------------------
+// COLOR WHATSAPP
+// ---------------------------------------------
+$color-whatsapp:      #25D366;
+$color-whatsapp-dark: #1da851;
+
+// ---------------------------------------------
+// TIPOGRAFÍAS
+// ---------------------------------------------
+$font-display: 'Barlow Condensed', sans-serif;  // Títulos, navbar, badges
+$font-body:    'Nunito Sans', sans-serif;        // Párrafos, formularios
+
+// Google Fonts a importar en main.scss:
+// https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap
+
+// ---------------------------------------------
+// TAMAÑOS DE FUENTE
+// ---------------------------------------------
+$font-size-base:   16px;
+$font-size-sm:     0.875rem;   // 14px
+$font-size-md:     1rem;       // 16px
+$font-size-lg:     1.125rem;   // 18px
+$font-size-xl:     1.25rem;    // 20px
+
+// Títulos de sección (clamp para responsivo)
+$font-size-h1:     clamp(2.8rem, 7vw, 5.5rem);
+$font-size-h2:     clamp(2rem, 4vw, 3rem);
+$font-size-h3:     1.2rem;
+
+// ---------------------------------------------
+// PESOS DE FUENTE
+// ---------------------------------------------
+$font-weight-light:    300;
+$font-weight-regular:  400;
+$font-weight-semibold: 600;
+$font-weight-bold:     700;
+$font-weight-black:    800;
+
+// ---------------------------------------------
+// ESPACIADO (padding/margin de secciones)
+// ---------------------------------------------
+$section-padding-y:  100px;
+$section-padding-sm: 60px;
+
+// ---------------------------------------------
+// BORDES Y RADIOS
+// ---------------------------------------------
+$radius-sm:   6px;
+$radius-md:   12px;
+$radius-lg:   20px;
+$radius-full: 999px;
+
+// ---------------------------------------------
+// SOMBRAS
+// ---------------------------------------------
+$shadow-card:  0 4px 24px rgba(27, 58, 107, 0.13);
+$shadow-hover: 0 10px 40px rgba(27, 58, 107, 0.22);
+$shadow-wa:    0 4px 20px rgba(37, 211, 102, 0.45);
+
+// ---------------------------------------------
+// TRANSICIONES
+// ---------------------------------------------
+$transition-base: 0.3s cubic-bezier(.4, 0, .2, 1);
+$transition-slow: 0.5s ease;
+
+// ---------------------------------------------
+// Z-INDEX
+// ---------------------------------------------
+$z-navbar:  1000;
+$z-modal:   2000;
+$z-wa-btn:  999;
+
+// ---------------------------------------------
+// BREAKPOINTS (referencia — Bootstrap 5)
+// ---------------------------------------------
+// xs:  < 576px
+// sm:  >= 576px
+// md:  >= 768px
+// lg:  >= 992px
+// xl:  >= 1200px
+// xxl: >= 1400px

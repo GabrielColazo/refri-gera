@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <meta name="description"
+    content="REFRI-GERA - Instalación y reparación de aire acondicionado en Buenos Aires. Técnico matriculado, matrícula N° 32089783, avalado por C.A.I.M." />
+  <meta name="keywords"
+    content="aire acondicionado, instalación, reparación, heladeras exhibidoras, cámara de frío, placas inverter, Buenos Aires, técnico matriculado" />
+  <meta name="author" content="REFRI-GERA" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (redes sociales) -->
+  <meta property="og:title" content="REFRI-GERA | Instalación y Reparación de Aire Acondicionado" />
+  <meta property="og:description"
+    content="Técnico matriculado en Buenos Aires. Instalación, reparación y mantenimiento de aires acondicionados, heladeras exhibidoras y cámaras de frío." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+
+  <title>REFRI-GERA | Instalación y Reparación de Aire Acondicionado</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+  <!-- CSS propio (compilado desde SCSS) -->
+  <link rel="stylesheet" href="./assets/css/main.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVBAR
+       Semántica: <header> + <nav> con role y aria-label
+  ============================================================ -->
+  <header>
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top" aria-label="Navegación principal">
+      <div class="container">
+
+        <!-- Logo / Marca -->
+        <a class="navbar-brand" href="#hero" aria-label="REFRI-GERA - Inicio">
+          <i class="bi bi-snow" aria-hidden="true"></i>
+          <span>REFRI<span class="brand-dash">-</span>GERA</span>
+        </a>
+
+        <!-- Botón hamburguesa Bootstrap -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú de navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links de navegación -->
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link" href="#servicios">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#proyectos">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sobremi">Sobre Mí</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a class="nav-link nav-cta" href="https://wa.me/543329616513" target="_blank" rel="noopener noreferrer"
+                aria-label="Contactar por WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ============================================================
+       MAIN — Contenido principal de la página
+  ============================================================ -->
+  <main>
+
+
+    <!-- ----------------------------------------------------------
+         SECCIÓN HERO
+         Semántica: <section> con aria-labelledby apuntando al h1
+    ---------------------------------------------------------- -->
+    <section id="hero" aria-labelledby="hero-titulo">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-particles" id="particles" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="row justify-content-start align-items-center min-vh-100">
+          <div class="col-12 col-md-10 col-lg-7 hero-content">
+
+            <!-- Badge matricula -->
+            <p class="hero-badge">
+              <i class="bi bi-patch-check-fill" aria-hidden="true"></i>
+              Técnico Matriculado · Matrícula N° 32089783
+            </p>
+
+            <!-- Logo caja blanca -->
+            <div class="hero-logo-box">
+              <h1 id="hero-titulo">REFRI<span>-</span>GERA</h1>
+            </div>
+
+            <!-- Tagline principal -->
+            <p class="hero-tagline">
+              Instalación y Reparación<br />de Aire Acondicionado
+            </p>
+
+            <!-- Lista de servicios destacados -->
+            <ul class="hero-features" aria-label="Servicios principales">
+              <li>
+                <i class="bi bi-snow2" aria-hidden="true"></i>
+                Reparación de Heladeras Exhibidoras Comerciales
+              </li>
+              <li>
+                <i class="bi bi-thermometer-snow" aria-hidden="true"></i>
+                Reparación de Cámara de Frío
+              </li>
+              <li>
+                <i class="bi bi-tools" aria-hidden="true"></i>
+                Mantenimiento Preventivo y Correctivo
+              </li>
+              <li>
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                Trabajos con Garantía
+              </li>
+              <li>
+                <i class="bi bi-cpu" aria-hidden="true"></i>
+                Reparación de Placas Inverter
+              </li>
+            </ul>
+
+            <!-- Botones de acción -->
+            <div class="hero-btns d-flex flex-wrap gap-3">
+              <a href="#contacto" class="btn btn-primary-rg">
+                <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                Solicitar Presupuesto
+              </a>
+              <a href="#servicios" class="btn btn-outline-rg">
+                <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>
+                Ver Servicios
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicador de scroll -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <i class="bi bi-chevron-down"></i>
+      </div>
+
+      <!-- Barra CAIM -->
+      <div class="hero-caim" role="complementary" aria-label="Certificaciones y acreditaciones">
+        <div class="caim-badge">
+          <div class="caim-circle" aria-label="Logo C.A.I.M.">C·A<br />I·M</div>
+          <div class="caim-text">
+            <strong>Avalado por C.A.I.M.</strong><br />
+            Cámara Argentina de la Industria del Mantenimiento
+          </div>
+        </div>
+        <div class="caim-separator" aria-hidden="true"></div>
+        <div class="caim-badge">
+          <i class="bi bi-award-fill" aria-hidden="true"></i>
+          <div class="caim-text">
+            <strong>Técnico Matriculado</strong><br />
+            Matrícula N° 32089783
+          </div>
+        </div>
+        
+      </div>
+
+    </section>
+
+
+
+
+    <!-- ----------------------------------------------------------
+         SECCIÓN SERVICIOS
+    ---------------------------------------------------------- -->
+    <section id="servicios" aria-labelledby="servicios-titulo">
+      <div class="container">
+
+        <header class="section-header text-center">
+          <p class="section-badge">
+            <i class="bi bi-grid-3x3-gap-fill" aria-hidden="true"></i>
+            Lo que ofrezco
+          </p>
+          <h2 id="servicios-titulo" class="section-title">Nuestros <span>Servicios</span></h2>
+          <div class="divider mx-auto" aria-hidden="true"></div>
+          <p class="section-subtitle">Soluciones integrales de refrigeración y climatización con calidad profesional</p>
+        </header>
+
+        <div class="row g-4">
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="service-card" aria-labelledby="serv-1">
+              <div class="service-icon" aria-hidden="true"><i class="bi bi-wind"></i></div>
+              <h3 id="serv-1">Instalación de Aire Acondicionado</h3>
+              <p>Instalación profesional de equipos split, multi-split y ducted en hogares y locales comerciales con
+                garantía de trabajo.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="service-card" aria-labelledby="serv-2">
+              <div class="service-icon" aria-hidden="true"><i class="bi bi-wrench-adjustable"></i></div>
+              <h3 id="serv-2">Reparación de Aire Acondicionado</h3>
+              <p>Diagnóstico y reparación de todo tipo de averías: carga de gas, problemas eléctricos, sensores,
+                compresores y más.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="service-card" aria-labelledby="serv-3">
+              <div class="service-icon" aria-hidden="true"><i class="bi bi-snow2"></i></div>
+              <h3 id="serv-3">Reparación de Heladeras Exhibidoras</h3>
+              <p>Servicio técnico especializado en heladeras exhibidoras comerciales. Mantenemos la cadena de frío de tu
+                negocio.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="service-card" aria-labelledby="serv-4">
+              <div class="service-icon" aria-hidden="true"><i class="bi bi-thermometer-snow"></i></div>
+              <h3 id="serv-4">Cámara de Frío</h3>
+              <p>Instalación y reparación de cámaras frigoríficas industriales y comerciales. Soluciones a medida para
+                tu empresa.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="service-card" aria-labelledby="serv-5">
+              <div class="service-icon" aria-hidden="true"><i class="bi bi-cpu"></i></div>
+              <h3 id="serv-5">Reparación de Placas Inverter</h3>
+              <p>Diagnóstico y reparación de placas electrónicas inverter de todas las marcas. Recuperá tu equipo sin
+                cambiarlo.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="service-card" aria-labelledby="serv-6">
+              <div class="service-icon" aria-hidden="true"><i class="bi bi-shield-check"></i></div>
+              <h3 id="serv-6">Mantenimiento Preventivo</h3>
+              <p>Limpieza, desinfección y control periódico de equipos para maximizar su eficiencia y prolongar la vida
+                útil.</p>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ----------------------------------------------------------
+     SECCIÓN PROYECTOS
+---------------------------------------------------------- -->
+    <section id="proyectos" aria-labelledby="proyectos-titulo">
+      <div class="container">
+
+        <header class="section-header text-center">
+          <p class="section-badge">
+            <i class="bi bi-images" aria-hidden="true"></i>
+            Trabajos realizados
+          </p>
+          <h2 id="proyectos-titulo" class="section-title">Nuestros <span>Proyectos</span></h2>
+          <div class="divider mx-auto" aria-hidden="true"></div>
+          <p class="section-subtitle">Galería de trabajos realizados para hogares y comercios</p>
+        </header>
+
+        <div class="row g-3" id="galeria-proyectos">
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90"
+              class="glightbox proyecto-thumb" data-gallery="proyectos"
+              data-description="Instalación Split Inverter 3000W — Residencial">
+              <div class="proyecto-img-wrap">
+                <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80"
+                  alt="Instalación split inverter residencial" loading="lazy" width="600" height="400" />
+                <div class="proyecto-overlay" aria-hidden="true">
+                  <span class="proyecto-tag"><i class="bi bi-zoom-in"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&q=90"
+              class="glightbox proyecto-thumb" data-gallery="proyectos"
+              data-description="Reparación Heladera Exhibidora — Comercial">
+              <div class="proyecto-img-wrap">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80"
+                  alt="Reparación heladera exhibidora comercial" loading="lazy" width="600" height="400" />
+                <div class="proyecto-overlay" aria-hidden="true">
+                  <span class="proyecto-tag"><i class="bi bi-zoom-in"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=90"
+              class="glightbox proyecto-thumb" data-gallery="proyectos"
+              data-description="Instalación Cámara de Frío — Industrial">
+              <div class="proyecto-img-wrap">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80"
+                  alt="Instalación cámara de frío industrial" loading="lazy" width="600" height="400" />
+                <div class="proyecto-overlay" aria-hidden="true">
+                  <span class="proyecto-tag"><i class="bi bi-zoom-in"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=90"
+              class="glightbox proyecto-thumb" data-gallery="proyectos"
+              data-description="Mantenimiento Preventivo — Empresa">
+              <div class="proyecto-img-wrap">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                  alt="Mantenimiento preventivo de equipos" loading="lazy" width="600" height="400" />
+                <div class="proyecto-overlay" aria-hidden="true">
+                  <span class="proyecto-tag"><i class="bi bi-zoom-in"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=90"
+              class="glightbox proyecto-thumb" data-gallery="proyectos"
+              data-description="Reparación Placa Inverter — Electrónica">
+              <div class="proyecto-img-wrap">
+                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80"
+                  alt="Reparación placa electrónica inverter" loading="lazy" width="600" height="400" />
+                <div class="proyecto-overlay" aria-hidden="true">
+                  <span class="proyecto-tag"><i class="bi bi-zoom-in"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=90"
+              class="glightbox proyecto-thumb" data-gallery="proyectos"
+              data-description="Climatización Local Comercial — Comercial">
+              <div class="proyecto-img-wrap">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80"
+                  alt="Climatización local comercial multi-split" loading="lazy" width="600" height="400" />
+                <div class="proyecto-overlay" aria-hidden="true">
+                  <span class="proyecto-tag"><i class="bi bi-zoom-in"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&q=90"
+              class="glightbox proyecto-thumb" data-gallery="proyectos"
+              data-description="Instalación Split — Residencial">
+              <div class="proyecto-img-wrap">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80"
+                  alt="Instalación split residencial" loading="lazy" width="600" height="400" />
+                <div class="proyecto-overlay" aria-hidden="true">
+                  <span class="proyecto-tag"><i class="bi bi-zoom-in"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://images.unsplash.com/photo-1631563019676-dade0dbdb8fc?w=1200&q=90"
+              class="glightbox proyecto-thumb" data-gallery="proyectos"
+              data-description="Reparación Aire Acondicionado — Residencial">
+              <div class="proyecto-img-wrap">
+                <img src="https://images.unsplash.com/photo-1631563019676-dade0dbdb8fc?w=600&q=80"
+                  alt="Reparación aire acondicionado residencial" loading="lazy" width="600" height="400" />
+                <div class="proyecto-overlay" aria-hidden="true">
+                  <span class="proyecto-tag"><i class="bi bi-zoom-in"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------
+         SECCIÓN SOBRE MÍ
+    ---------------------------------------------------------- -->
+    <section id="sobremi" aria-labelledby="sobremi-titulo">
+      <div class="container">
+        <div class="row align-items-center g-5">
+
+          <!-- Imagen -->
+          <div class="col-12 col-lg-5">
+            <div class="sobremi-img-wrap">
+              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=700&q=80"
+                alt="Técnico de aire acondicionado trabajando en una instalación" loading="lazy" width="700"
+                height="500" class="img-fluid" />
+              <div class="sobremi-badge-float" aria-label="Más de 10 años de experiencia">
+                <span class="num">10+</span>
+                <span class="lbl">Años de<br />Experiencia</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto -->
+          <div class="col-12 col-lg-7">
+            <p class="section-badge">
+              <i class="bi bi-person-circle" aria-hidden="true"></i>
+              Quién soy
+            </p>
+            <h2 id="sobremi-titulo" class="section-title">Sobre <span>Mí</span></h2>
+            <div class="divider" aria-hidden="true"></div>
+
+            <p class="sobremi-desc">
+              Soy técnico matriculado con más de 10 años de experiencia en instalación y reparación de sistemas de
+              refrigeración y climatización. Me especializo en equipos residenciales, comerciales e industriales,
+              ofreciendo soluciones confiables y duraderas.
+            </p>
+            <p class="sobremi-desc">
+              Mi compromiso es brindar un servicio de calidad con atención personalizada, precios transparentes y
+              trabajos garantizados. Cada trabajo que realizo lleva mi firma y mi responsabilidad.
+            </p>
+
+            <ul class="sobremi-list" aria-label="Características del servicio">
+              <li>
+                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                Técnico matriculado y habilitado por C.A.I.M.
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                Atención rápida y presupuesto sin cargo
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                Servicio en domicilio de lunes a sábado
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                Repuestos originales y de primera calidad
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                Garantía escrita en todos los trabajos
+              </li>
+            </ul>
+
+            <!-- Certificación CAIM -->
+            <div class="cert-bar" role="note" aria-label="Certificación C.A.I.M.">
+              <div class="caim-circle" aria-label="Logo C.A.I.M.">C·A<br />I·M</div>
+              <div class="cert-bar-text">
+                <strong>Avalado por C.A.I.M.</strong><br />
+                Técnico Matriculado · Matrícula N° 32089783
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ----------------------------------------------------------
+     SECCIÓN CONTACTO
+---------------------------------------------------------- -->
+<section id="contacto" aria-labelledby="contacto-titulo">
+  <div class="container">
+
+    <header class="section-header text-center">
+      <p class="section-badge section-badge--light">
+        <i class="bi bi-chat-dots-fill" aria-hidden="true"></i>
+        Hablemos
+      </p>
+      <h2 id="contacto-titulo" class="section-title">Contacto</h2>
+      <div class="divider mx-auto" aria-hidden="true"></div>
+      <p class="section-subtitle">¿Necesitás un presupuesto? Contactame y te respondo a la brevedad</p>
+    </header>
+
+    <div class="row g-5 align-items-stretch">
+
+      <!-- Columna izquierda — Mapa -->
+      <div class="col-12 col-lg-6">
+        <div class="contact-map-wrap">
+
+          <div class="contact-map-info">
+            <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+            <div>
+              <strong>Baradero, Buenos Aires</strong>
+              <span>Provincia de Buenos Aires, Argentina</span>
+            </div>
+          </div>
+
+          <div class="contact-map-frame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52490.44!2d-59.5167!3d-33.8078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b8f6b3b3b3b3b3%3A0x1234567890abcdef!2sBaradero%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación de REFRI-GERA en Baradero, Buenos Aires"
+              aria-label="Mapa de Google Maps mostrando Baradero, Buenos Aires"
+            ></iframe>
+          </div>
+
+          <div class="contact-map-badges">
+            <div class="contact-map-badge">
+              <i class="bi bi-clock-fill" aria-hidden="true"></i>
+              <span>Lunes a Sábado · 8:00 – 19:00</span>
+            </div>
+            <div class="contact-map-badge">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+              <a href="https://wa.me/543329616513" target="_blank" rel="noopener noreferrer">3329-616513</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Columna derecha — Formulario -->
+      <div class="col-12 col-lg-6">
+        <div class="contact-form-wrap">
+
+          <h3 class="contact-form-title">
+            <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+            Envianos tu consulta
+          </h3>
+
+          <form id="formContacto" novalidate aria-label="Formulario de contacto">
+
+            <input type="hidden" name="access_key" value="TU-ACCESS-KEY-AQUI" />
+            <input type="hidden" name="subject" value="Nuevo contacto desde REFRI-GERA" />
+            <input type="hidden" name="from_name" value="Web REFRI-GERA" />
+            <input type="checkbox" name="botcheck" style="display:none;" />
+
+            <div class="form-group">
+              <label for="nombre">
+                <i class="bi bi-person-fill" aria-hidden="true"></i>
+                Nombre
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-control-rg"
+                placeholder="Tu nombre completo"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">
+                <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+                Teléfono
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-control-rg"
+                placeholder="Tu número de teléfono"
+                autocomplete="tel"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">
+                <i class="bi bi-chat-text-fill" aria-hidden="true"></i>
+                Mensaje
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-control-rg"
+                placeholder="Describí brevemente lo que necesitás..."
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Mensaje de éxito -->
+            <div class="form-success" id="formSuccess" aria-live="polite">
+              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+              ¡Mensaje enviado! Te respondemos a la brevedad.
+            </div>
+
+            <!-- Mensaje de error -->
+            <div class="form-error" id="formError" aria-live="polite">
+              <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
+              Hubo un error. Intentá de nuevo o escribinos por WhatsApp.
+            </div>
+
+            <button type="submit" class="btn-send" id="btnEnviar">
+              <i class="bi bi-send-fill" aria-hidden="true"></i>
+              <span id="btnTexto">Enviar mensaje</span>
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  </main><!-- fin main -->
+
+
+  <footer aria-label="Pie de página">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Columna marca -->
+      <div class="col-12 col-lg-4">
+        <div class="footer-brand">
+          <i class="bi bi-snow" aria-hidden="true"></i>
+          <span class="footer-brand-name">REFRI<span>-GERA</span></span>
+        </div>
+        <p class="footer-desc">
+          Técnico matriculado especializado en instalación y reparación de sistemas de aire acondicionado y refrigeración. Avalado por C.A.I.M.
+        </p>
+        <div class="footer-caim">
+          <div class="caim-circle" aria-label="Logo C.A.I.M.">C·A<br />I·M</div>
+          <p>
+            <strong>Avalado por C.A.I.M.</strong>
+            Técnico Matriculado · Matrícula N° 32089783
+          </p>
+        </div>
+      </div>
+
+      <!-- Columna navegación -->
+      <div class="col-6 col-lg-2">
+        <h4 class="footer-heading">Navegación</h4>
+        <nav aria-label="Navegación del footer">
+          <ul class="footer-links">
+            <li><a href="#servicios"><i class="bi bi-chevron-right" aria-hidden="true"></i>Servicios</a></li>
+            <li><a href="#proyectos"><i class="bi bi-chevron-right" aria-hidden="true"></i>Proyectos</a></li>
+            <li><a href="#sobremi"><i class="bi bi-chevron-right" aria-hidden="true"></i>Sobre Mí</a></li>
+            <li><a href="#contacto"><i class="bi bi-chevron-right" aria-hidden="true"></i>Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Columna servicios -->
+      <div class="col-6 col-lg-3">
+        <h4 class="footer-heading">Servicios</h4>
+        <ul class="footer-links">
+          <li><a href="#servicios"><i class="bi bi-chevron-right" aria-hidden="true"></i>Instalación A/C</a></li>
+          <li><a href="#servicios"><i class="bi bi-chevron-right" aria-hidden="true"></i>Reparación A/C</a></li>
+          <li><a href="#servicios"><i class="bi bi-chevron-right" aria-hidden="true"></i>Heladeras Exhibidoras</a></li>
+          <li><a href="#servicios"><i class="bi bi-chevron-right" aria-hidden="true"></i>Cámara de Frío</a></li>
+          <li><a href="#servicios"><i class="bi bi-chevron-right" aria-hidden="true"></i>Placas Inverter</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna contacto -->
+      <div class="col-12 col-lg-3">
+        <h4 class="footer-heading">Contacto</h4>
+        <address class="footer-contact">
+          <div class="footer-contact-item">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            <a href="https://wa.me/543329616513" target="_blank" rel="noopener noreferrer">3329-616513</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+            <a href="tel:+543329616513">3329-616513</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+            <span>Baradero, Buenos Aires</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-clock-fill" aria-hidden="true"></i>
+            <span>Lunes a Sábado · 8:00 – 19:00</span>
+          </div>
+        </address>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>© 2026 <span>REFRI-GERA</span>. Todos los derechos reservados.</p>
+      <p>Técnico Matriculado · Matrícula N° <span>32089783</span> · Avalado por <span>C.A.I.M.</span></p>
+    </div>
+
+  </div>
+</footer>
+
+                  <!-- ============================================================
+     BOTÓN WHATSAPP FLOTANTE
+============================================================ -->
+
+                  <a href="https://wa.me/543329616513" target="_blank" rel="noopener noreferrer" class="whatsapp-float"
+                    aria-label="Contactar por WhatsApp" title="Escribime por WhatsApp">
+                    <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                  </a>
+               
+
+                  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+
+                  <!-- Bootstrap 5 JS (bundle incluye Popper) -->
+                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+                  <!-- JavaScript propio -->
+                  <script src="./assets/js/main.js"></script>
+
+                  <!-- GLightbox JS -->
+                  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+</body>
+
+</html>
