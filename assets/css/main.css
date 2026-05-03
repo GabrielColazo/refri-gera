@@ -1869,4 +1869,36 @@ footer {
   .footer-caim {
     margin-top: 16px;
   }
+}
+.footer-credits {
+  text-align: center;
+  padding: 14px 0;
+  border-top: 1px solid rgba(248, 250, 251, 0.06);
+  font-size: 0.875rem;
+  color: rgba(248, 250, 251, 0.35);
+}
+.footer-credits a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(248, 250, 251, 0.35);
+  text-decoration: none;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-credits a:hover {
+  color: rgba(248, 250, 251, 0.7);
+}
+
+.gaboweb-logo {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.gaboweb-logo .bracket {
+  color: #EA580C;
+  font-weight: 800;
+}
+.gaboweb-logo .name {
+  color: #FFFFFF;
 }/*# sourceMappingURL=main.css.map */

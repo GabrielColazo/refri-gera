@@ -244,3 +244,43 @@ footer {
     margin-top: 16px;
   }
 }
+
+// ---------------------------------------------
+// CRÉDITOS DESARROLLADOR
+// ---------------------------------------------
+.footer-credits {
+  text-align: center;
+  padding: 14px 0;
+  border-top: 1px solid rgba($color-white, 0.06);
+  font-size: $font-size-sm;
+  color: rgba($color-white, 0.35);
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba($color-white, 0.35);
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: rgba($color-white, 0.7);
+    }
+  }
+}
+
+.gaboweb-logo {
+  font-family: $font-display;
+  font-size: 0.95rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.02em;
+
+  .bracket {
+    color: #EA580C;
+    font-weight: $font-weight-black;
+  }
+
+  .name {
+    color: #FFFFFF;
+  }
+}
