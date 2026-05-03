@@ -1,101 +1,107 @@
 // =============================================
-// _sobremi.scss — REFRI-GERA
+// _sobremi.scss — REFRI-GERA (Versión Espectacular)
 // =============================================
-
+@use 'sass:color';
 @use 'variables' as *;
 
-// ---------------------------------------------
-// SECCIÓN SOBRE MÍ — contenedor principal
-// ---------------------------------------------
 #sobremi {
   background-color: #fff;
+  padding: 80px 0; // Un buen aire arriba y abajo
 }
 
 // ---------------------------------------------
-// CONTENEDOR DE IMAGEN
+// CONTENEDOR DE IMAGEN (Con Vida Propia)
 // ---------------------------------------------
 .sobremi-img-wrap {
   position: relative;
+  overflow: hidden; 
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+
+  // Overlay sutil para dar profundidad
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.5));
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
 
   img {
     width: 100%;
-    border-radius: $radius-lg;
+    height: auto;
+    max-height: 550px;
     object-fit: cover;
-    max-height: 500px;
     display: block;
+    transition: all 0.7s ease;
+    transform: scale(1.01);
+  }
+
+  // --- EFECTO HOVER INTEGRADO ---
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-hover;
+
+    img {
+      transform: scale(1.1) rotate(1deg);
+      filter: brightness(1.05) contrast(1.1);
+    }
+
+    &::before { opacity: 0.8; }
+
+    .sobremi-badge-float {
+      transform: translate(-10px, -10px) scale(1.05);
+      background-color: $color-white;
+      color: $color-primary; // El texto cambia al principal
+      
+      .num { color: $color-primary; }
+    }
   }
 }
 
 // ---------------------------------------------
-// BADGE FLOTANTE — años de experiencia
+// BADGE FLOTANTE (Optimizado)
 // ---------------------------------------------
 .sobremi-badge-float {
   position: absolute;
-  bottom: -20px;
-  right: -16px;
-  background-color: $color-primary;
-  color: $color-white;
+  bottom: 25px;
+  right: 25px;
+  z-index: 2;
+  background-color: $color-accent; // Color naranja/amarillo inicial
+  color: $color-primary-dark;
   border-radius: $radius-md;
-  padding: 18px 22px;
+  padding: 20px;
   text-align: center;
-  box-shadow: $shadow-hover;
-  min-width: 120px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+  min-width: 130px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: floating-badge 4s ease-in-out infinite;
 
   .num {
     display: block;
     font-family: $font-display;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: $font-weight-black;
-    color: $color-accent;
     line-height: 1;
+    transition: color 0.5s ease;
   }
 
   .lbl {
     display: block;
     font-family: $font-display;
-    font-size: 0.78rem;
-    font-weight: $font-weight-semibold;
+    font-size: 0.75rem;
+    font-weight: $font-weight-bold;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    opacity: 0.8;
-    margin-top: 6px;
-    line-height: 1.3;
-  }
-}
-
-// ---------------------------------------------
-// TEXTOS
-// ---------------------------------------------
-.sobremi-desc {
-  font-size: $font-size-md;
-  color: $color-mid;
-  line-height: 1.75;
-  margin-top: 1rem;
-}
-
-// ---------------------------------------------
-// LISTA DE ATRIBUTOS
-// ---------------------------------------------
-.sobremi-list {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-
-  li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: $font-size-md;
-    color: $color-mid;
-    line-height: 1.5;
-
-    i {
-      color: $color-accent-dark;
-      font-size: 1.1rem;
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+    line-height: 1.2;
   }
 }
 
@@ -103,29 +109,25 @@
 // BARRA DE CERTIFICACIÓN CAIM
 // ---------------------------------------------
 .cert-bar {
-  margin-top: 2rem;
-  padding: 20px 24px;
+  margin-top: 2.5rem;
+  padding: 24px;
   background-color: $color-light;
   border-radius: $radius-md;
-  border-left: 4px solid $color-accent;
+  border-left: 5px solid $color-accent;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
+  transition: transform 0.3s ease;
 
-  .caim-circle {
-    flex-shrink: 0;
+  &:hover {
+    transform: translateX(8px);
+    background-color: color.adjust($color-light, $lightness: -2%);
   }
-}
-
-.cert-bar-text {
-  font-size: $font-size-sm;
-  color: $color-mid;
-  line-height: 1.5;
 
   strong {
     display: block;
     font-family: $font-display;
-    font-size: $font-size-md;
+    font-size: 1.1rem;
     font-weight: $font-weight-bold;
     color: $color-primary;
     margin-bottom: 2px;
@@ -133,41 +135,64 @@
 }
 
 // ---------------------------------------------
-// RESPONSIVE
+// TEXTOS Y LISTAS
 // ---------------------------------------------
-@media (max-width: 991.98px) {
-  .sobremi-img-wrap {
-    margin-bottom: 40px;
+.sobremi-desc {
+  font-size: 1.05rem;
+  color: $color-mid;
+  line-height: 1.8;
+}
 
-    img {
-      max-height: 400px;
+.sobremi-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+
+  li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: $color-primary;
+    font-weight: 500;
+
+    i {
+      color: $color-accent;
+      font-size: 1.2rem;
     }
   }
+}
 
-  .sobremi-badge-float {
-    right: 0;
+// ---------------------------------------------
+// ANIMACIONES Y RESPONSIVE
+// ---------------------------------------------
+@keyframes floating-badge {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@media (max-width: 991.98px) {
+  .sobremi-img-wrap {
+    margin-bottom: 50px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media (max-width: 767.98px) {
-  .sobremi-img-wrap img {
-    max-height: 300px;
-    border-radius: $radius-md;
-  }
-
   .sobremi-badge-float {
-    bottom: -16px;
-    padding: 14px 18px;
-    min-width: 100px;
-
-    .num {
-      font-size: 1.8rem;
-    }
+    bottom: 15px;
+    right: 15px;
+    padding: 15px;
+    min-width: 110px;
+    
+    .num { font-size: 1.8rem; }
+    .lbl { font-size: 0.65rem; }
   }
 
   .cert-bar {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    text-align: center;
   }
 }

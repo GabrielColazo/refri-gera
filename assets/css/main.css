@@ -1151,136 +1151,173 @@ button {
 }
 #sobremi {
   background-color: #fff;
+  padding: 80px 0;
 }
 
 .sobremi-img-wrap {
   position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(27, 58, 107, 0.13);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+.sobremi-img-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.5));
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 .sobremi-img-wrap img {
   width: 100%;
-  border-radius: 20px;
+  height: auto;
+  max-height: 550px;
   -o-object-fit: cover;
      object-fit: cover;
-  max-height: 500px;
   display: block;
+  transition: all 0.7s ease;
+  transform: scale(1.01);
+}
+.sobremi-img-wrap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(27, 58, 107, 0.22);
+}
+.sobremi-img-wrap:hover img {
+  transform: scale(1.1) rotate(1deg);
+  filter: brightness(1.05) contrast(1.1);
+}
+.sobremi-img-wrap:hover::before {
+  opacity: 0.8;
+}
+.sobremi-img-wrap:hover .sobremi-badge-float {
+  transform: translate(-10px, -10px) scale(1.05);
+  background-color: #F8FAFB;
+  color: #1B3A6B;
+}
+.sobremi-img-wrap:hover .sobremi-badge-float .num {
+  color: #1B3A6B;
 }
 
 .sobremi-badge-float {
   position: absolute;
-  bottom: -20px;
-  right: -16px;
-  background-color: #1B3A6B;
-  color: #F8FAFB;
+  bottom: 25px;
+  right: 25px;
+  z-index: 2;
+  background-color: #4DB8FF;
+  color: #0F2449;
   border-radius: 12px;
-  padding: 18px 22px;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 10px 40px rgba(27, 58, 107, 0.22);
-  min-width: 120px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  min-width: 130px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: floating-badge 4s ease-in-out infinite;
 }
 .sobremi-badge-float .num {
   display: block;
   font-family: "Barlow Condensed", sans-serif;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: #4DB8FF;
   line-height: 1;
+  transition: color 0.5s ease;
 }
 .sobremi-badge-float .lbl {
   display: block;
   font-family: "Barlow Condensed", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.8;
-  margin-top: 6px;
-  line-height: 1.3;
-}
-
-.sobremi-desc {
-  font-size: 1rem;
-  color: #2C3E50;
-  line-height: 1.75;
-  margin-top: 1rem;
-}
-
-.sobremi-list {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.sobremi-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 1rem;
-  color: #2C3E50;
-  line-height: 1.5;
-}
-.sobremi-list li i {
-  color: #1A9AE0;
-  font-size: 1.1rem;
-  margin-top: 2px;
-  flex-shrink: 0;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  line-height: 1.2;
 }
 
 .cert-bar {
-  margin-top: 2rem;
-  padding: 20px 24px;
+  margin-top: 2.5rem;
+  padding: 24px;
   background-color: #ECF4FB;
   border-radius: 12px;
-  border-left: 4px solid #4DB8FF;
+  border-left: 5px solid #4DB8FF;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
+  transition: transform 0.3s ease;
 }
-.cert-bar .caim-circle {
-  flex-shrink: 0;
+.cert-bar:hover {
+  transform: translateX(8px);
+  background-color: rgb(227.5739130435, 239.1217391304, 249.2260869565);
 }
-
-.cert-bar-text {
-  font-size: 0.875rem;
-  color: #2C3E50;
-  line-height: 1.5;
-}
-.cert-bar-text strong {
+.cert-bar strong {
   display: block;
   font-family: "Barlow Condensed", sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #1B3A6B;
   margin-bottom: 2px;
 }
 
+.sobremi-desc {
+  font-size: 1.05rem;
+  color: #2C3E50;
+  line-height: 1.8;
+}
+
+.sobremi-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.sobremi-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #1B3A6B;
+  font-weight: 500;
+}
+.sobremi-list li i {
+  color: #4DB8FF;
+  font-size: 1.2rem;
+}
+
+@keyframes floating-badge {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
 @media (max-width: 991.98px) {
   .sobremi-img-wrap {
-    margin-bottom: 40px;
-  }
-  .sobremi-img-wrap img {
-    max-height: 400px;
-  }
-  .sobremi-badge-float {
-    right: 0;
+    margin-bottom: 50px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media (max-width: 767.98px) {
-  .sobremi-img-wrap img {
-    max-height: 300px;
-    border-radius: 12px;
-  }
   .sobremi-badge-float {
-    bottom: -16px;
-    padding: 14px 18px;
-    min-width: 100px;
+    bottom: 15px;
+    right: 15px;
+    padding: 15px;
+    min-width: 110px;
   }
   .sobremi-badge-float .num {
     font-size: 1.8rem;
   }
+  .sobremi-badge-float .lbl {
+    font-size: 0.65rem;
+  }
   .cert-bar {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    text-align: center;
   }
 }
 #contacto {
@@ -1609,6 +1646,40 @@ textarea.form-control-rg {
     min-width: unset;
   }
 }
+.contact-map-frame {
+  width: 100%;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #1B3A6B;
+  background-color: #000;
+  position: relative;
+}
+.contact-map-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(27, 58, 107, 0.3);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.contact-map-frame iframe {
+  width: 100% !important;
+  height: 100% !important;
+  filter: grayscale(1) invert(1) contrast(1.2) brightness(0.8);
+  transition: all 0.5s ease;
+}
+.contact-map-frame:hover::before {
+  opacity: 0;
+}
+.contact-map-frame:hover iframe {
+  filter: none;
+}
+
 footer {
   background-color: #1A1F2E;
   padding-top: 60px;

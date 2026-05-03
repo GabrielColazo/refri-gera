@@ -367,3 +367,44 @@ textarea.form-control-rg {
     min-width: unset;
   }
 }
+
+.contact-map-frame {
+  width: 100%;
+  height: 450px;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 2px solid $color-primary; // Le damos un borde sólido para encuadrarlo
+  background-color: #000; // Fondo negro base
+  position: relative;
+
+  &::before {
+    // Esta es una capa azul traslúcida que va ENCIMA del mapa
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color-primary, 0.3); // Tinte azul de Refri-Gera
+    z-index: 1;
+    pointer-events: none; // Permite que el mouse pase a través y toque el mapa
+    transition: opacity 0.5s ease;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: 100% !important;
+    // Filtro de alto contraste e inversión total
+    filter: grayscale(1) invert(1) contrast(1.2) brightness(0.8);
+    transition: all 0.5s ease;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0; // Desaparece el tinte azul al pasar el mouse
+    }
+    iframe {
+      filter: none; // Vuelve al color original de Google
+    }
+  }
+}
