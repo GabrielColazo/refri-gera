@@ -1,7 +1,7 @@
 // =============================================
 // _servicios.scss — REFRI-GERA
 // =============================================
-
+@use 'sass:color';
 @use 'variables' as *;
 
 // ---------------------------------------------
@@ -107,5 +107,58 @@
     width: 54px;
     height: 54px;
     font-size: 1.5rem;
+  }
+}
+
+.service-card-featured {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
+  color: $color-white;
+  padding: 40px;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-hover; // Una sombra más marcada
+  border: 2px solid rgba($color-white, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    color: $color-white; // Asegura que el título sea blanco
+    font-size: 1.8rem;
+  }
+
+  p {
+    color: rgba($color-white, 0.9);
+    font-size: 1.1rem;
+  }
+
+  .featured-icon {
+    background: $color-accent; // Color que resalte (ej. naranja o amarillo)
+    color: $color-primary-dark;
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba($color-accent, 0.4);
+  }
+}
+
+// Botón específico para este destacado
+.btn-accent {
+  background-color: $color-accent;
+  border-color: $color-accent;
+  color: $color-primary-dark;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+   background-color: color.adjust($color-accent, $lightness: -10%);
+    transform: scale(1.05);
   }
 }
