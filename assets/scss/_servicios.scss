@@ -160,17 +160,24 @@
   }
 
   .featured-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: $color-accent;
+   background: $color-accent;
     color: $color-primary-dark;
     padding: 5px 15px;
     border-radius: 50px;
     font-weight: 700;
     font-size: 0.85rem;
     text-transform: uppercase;
+    display: inline-block; // Para que se comporte bien en móvil
+    margin-bottom: 15px;
+
+    // En pantallas grandes (Notebook/PC) lo dejamos flotando a la derecha
+    @media (min-width: 992px) {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      margin-bottom: 0;
   }
+}
 }
 
 // ---------------------------------------------
