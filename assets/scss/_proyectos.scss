@@ -1,5 +1,5 @@
 // =============================================
-// _proyectos.scss — REFRI-GERA
+// _proyectos.scss — REFRI-GERA (CORREGIDO)
 // =============================================
 
 @use 'variables' as *;
@@ -9,17 +9,25 @@
 // ---------------------------------------------
 #proyectos {
   background-color: $color-light;
+  padding: 60px 0; // Agregué un poco de aire arriba y abajo
 }
 
 // ---------------------------------------------
-// THUMBNAIL — enlace contenedor
+// THUMBNAIL — contenedor con perspectiva 3D
 // ---------------------------------------------
 .proyecto-thumb {
   display: block;
-  border-radius: $radius-md;
-  overflow: hidden;
   text-decoration: none;
   height: 100%;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  transition: transform 0.15s ease, box-shadow $transition-base;
+  will-change: transform;
+  cursor: pointer;
+  box-shadow: $shadow-card;
+  background-color: $color-white; // Evita que se vea el fondo si la imagen tarda en cargar
 
   &:focus-visible {
     outline: 2px solid $color-accent;
@@ -27,100 +35,134 @@
   }
 
   &:hover {
-    .proyecto-img-wrap img {
-      transform: scale(1.08);
-    }
+    box-shadow: $shadow-hover;
+    transform: perspective(1000px) translateY(-5px); // Un pequeño levante mejora el efecto 3D
 
     .proyecto-overlay {
-      background: linear-gradient(
-        0deg,
-        rgba($color-primary-dark, 0.85) 0%,
-        rgba($color-primary, 0.4)       100%
-      );
+      opacity: 1;
     }
 
-    .proyecto-tag {
-      transform: scale(1.15);
-      background-color: $color-white;
-      color: $color-primary;
+    .proyecto-zoom-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .proyecto-shine {
+      opacity: 1;
+    }
+
+    img {
+      transform: scale(1.1); // Efecto de zoom en la imagen al hacer hover
     }
   }
 }
 
 // ---------------------------------------------
-// CONTENEDOR DE IMAGEN
+// CONTENEDOR DE IMAGEN (Optimizado)
 // ---------------------------------------------
 .proyecto-img-wrap {
   position: relative;
   overflow: hidden;
-  height: 200px;
+  width: 100%;
+  // REEMPLAZO: En lugar de height: 200px, usamos proporción 4:3 o 3:2
+  aspect-ratio: 4 / 3; 
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform $transition-slow;
+    object-fit: cover; // Esto asegura que la imagen llene el espacio sin estirarse
     display: block;
+    transition: transform $transition-slow;
+    will-change: transform;
   }
 }
 
 // ---------------------------------------------
-// OVERLAY
+// OVERLAY DEGRADADO
 // ---------------------------------------------
 .proyecto-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    0deg,
-    rgba($color-primary-dark, 0.55) 0%,
-    transparent                      60%
+    135deg,
+    rgba($color-primary-dark, 0.75) 0%,
+    rgba($color-accent-dark, 0.5)   100%
   );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background $transition-base;
-}
-
-// ---------------------------------------------
-// ÍCONO DE ZOOM
-// ---------------------------------------------
-.proyecto-tag {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: rgba($color-accent, 0.85);
-  color: $color-primary-dark;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
   opacity: 0;
-  transform: scale(0.8);
+  transition: opacity $transition-base;
+  z-index: 1;
+}
+
+// ---------------------------------------------
+// ÍCONO LUPA CENTRADO
+// ---------------------------------------------
+.proyecto-zoom-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
   transition: opacity $transition-base,
-              transform $transition-base,
-              background-color $transition-base,
-              color $transition-base;
-
-  .proyecto-thumb:hover & {
-    opacity: 1;
-    transform: scale(1.15);
-  }
+              transform $transition-base;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba($color-white, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-primary;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
 // ---------------------------------------------
-// RESPONSIVE
+// EFECTO BRILLO
 // ---------------------------------------------
+.proyecto-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba($color-white, 0.12) 50%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity $transition-base;
+  pointer-events: none;
+  z-index: 3;
+}
 
-// Tablet
+// ---------------------------------------------
+// RESPONSIVE (Limpio de alturas fijas)
+// ---------------------------------------------
 @media (max-width: 991.98px) {
-  .proyecto-img-wrap {
-    height: 180px;
+  .proyecto-thumb {
+    transform: none !important; // Desactiva el 3D en tablets para mejor performance
   }
 }
 
-// Mobile
 @media (max-width: 575.98px) {
+  // En móviles usamos 1:1 (cuadrado) para que entren mejor de a dos
   .proyecto-img-wrap {
-    height: 160px;
+    aspect-ratio: 1 / 1; 
+  }
+
+  .proyecto-thumb {
+    transform: none !important;
+  }
+
+  .proyecto-overlay {
+    opacity: 0.3; // Un poco de contraste para que se note que es clickeable
+  }
+
+  .proyecto-zoom-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.85);
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
   }
 }

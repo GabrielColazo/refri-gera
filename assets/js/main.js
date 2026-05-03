@@ -101,16 +101,6 @@ if (revealEls.length) {
   revealEls.forEach(el => revealObserver.observe(el));
 }
 
-// ---------------------------------------------
-// GLIGHTBOX — tu código existente
-// ---------------------------------------------
-const lightbox = GLightbox({
-  gallery: 'proyectos',
-  touchNavigation: true,
-  loop: true,
-  autoplayVideos: false,
-  descPosition: 'bottom',
-});
 
 // ---------------------------------------------
 // FORMULARIO WEB3FORMS — tu código existente
@@ -162,3 +152,73 @@ if (form) {
     }
   });
 }
+
+// ---------------------------------------------
+// TILT 3D — efecto en tarjetas de proyectos
+// Solo en dispositivos con mouse (no touch)
+// ---------------------------------------------
+const isTouchDevice = () =>
+  window.matchMedia('(hover: none)').matches;
+
+if (!isTouchDevice()) {
+  const tiltCards = document.querySelectorAll('.proyecto-thumb');
+
+  tiltCards.forEach(card => {
+    const wrap = card.querySelector('.proyecto-img-wrap');
+
+    card.addEventListener('mousemove', function (e) {
+      const rect   = card.getBoundingClientRect();
+      const x      = e.clientX - rect.left;
+      const y      = e.clientY - rect.top;
+      const centerX = rect.width  / 2;
+      const centerY = rect.height / 2;
+
+      // Máximo 12 grados de inclinación
+      const rotateX = ((y - centerY) / centerY) * -12;
+      const rotateY = ((x - centerX) / centerX) *  12;
+
+      card.style.transform =
+        `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+
+      // Mover el brillo siguiendo el mouse
+      const shine = card.querySelector('.proyecto-shine');
+      if (shine) {
+        const shineX = (x / rect.width)  * 100;
+        const shineY = (y / rect.height) * 100;
+        shine.style.background = `
+          radial-gradient(
+            circle at ${shineX}% ${shineY}%,
+            rgba(255,255,255,0.18) 0%,
+            transparent 60%
+          )
+        `;
+        shine.style.opacity = '1';
+      }
+    });
+
+    card.addEventListener('mouseleave', function () {
+      card.style.transform =
+        'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+
+      const shine = card.querySelector('.proyecto-shine');
+      if (shine) {
+        shine.style.opacity = '0';
+      }
+    });
+  });
+}
+
+// ---------------------------------------------
+// GLIGHTBOX — galería de proyectos
+// ---------------------------------------------
+if (typeof GLightbox !== 'undefined') {
+  GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    descPosition: 'description false',
+    openEffect: 'zoom',
+    closeEffect: 'zoom',
+  });
+}
+
