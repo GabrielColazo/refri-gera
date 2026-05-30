@@ -14,6 +14,7 @@ window.addEventListener('scroll', () => {
     navbar.classList.remove('scrolled');
   }
 });
+
 // ---------------------------------------------
 // NAVBAR — cerrar menú mobile al hacer click
 // en un link o por fuera del menú
@@ -101,9 +102,8 @@ if (revealEls.length) {
   revealEls.forEach(el => revealObserver.observe(el));
 }
 
-
 // ---------------------------------------------
-// FORMULARIO WEB3FORMS — tu código existente
+// FORMULARIO WEB3FORMS
 // ---------------------------------------------
 const form = document.getElementById('formContacto');
 const btnEnviar = document.getElementById('btnEnviar');
@@ -115,11 +115,35 @@ if (form) {
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
+    // ── VALIDACIÓN ──────────────────────────────
+    const nombre   = form.querySelector('[name="nombre"]').value.trim();
+    const telefono = form.querySelector('[name="telefono"]').value.trim();
+
+    formError.classList.remove('visible');
+
+    if (!nombre && !telefono) {
+      formError.innerHTML = '<i class="bi bi-exclamation-circle"></i> Completá tu nombre y teléfono para poder contactarte.';
+      formError.classList.add('visible');
+      return;
+    }
+
+    if (!nombre) {
+      formError.innerHTML = '<i class="bi bi-exclamation-circle"></i> Por favor ingresá tu nombre.';
+      formError.classList.add('visible');
+      return;
+    }
+
+    if (!telefono) {
+      formError.innerHTML = '<i class="bi bi-exclamation-circle"></i> Por favor ingresá tu teléfono.';
+      formError.classList.add('visible');
+      return;
+    }
+    // ────────────────────────────────────────────
+
     btnEnviar.disabled = true;
     btnTexto.textContent = 'Enviando...';
 
     formSuccess.classList.remove('visible');
-    formError.classList.remove('visible');
 
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
@@ -141,10 +165,12 @@ if (form) {
         formSuccess.classList.add('visible');
         form.reset();
       } else {
+        formError.innerHTML = '<i class="bi bi-exclamation-circle"></i> Hubo un problema al enviar. Intentá de nuevo.';
         formError.classList.add('visible');
       }
 
     } catch (error) {
+      formError.innerHTML = '<i class="bi bi-exclamation-circle"></i> Error de conexión. Intentá de nuevo.';
       formError.classList.add('visible');
     } finally {
       btnEnviar.disabled = false;
@@ -167,9 +193,9 @@ if (!isTouchDevice()) {
     const wrap = card.querySelector('.proyecto-img-wrap');
 
     card.addEventListener('mousemove', function (e) {
-      const rect   = card.getBoundingClientRect();
-      const x      = e.clientX - rect.left;
-      const y      = e.clientY - rect.top;
+      const rect    = card.getBoundingClientRect();
+      const x       = e.clientX - rect.left;
+      const y       = e.clientY - rect.top;
       const centerX = rect.width  / 2;
       const centerY = rect.height / 2;
 
@@ -221,4 +247,3 @@ if (typeof GLightbox !== 'undefined') {
     closeEffect: 'zoom',
   });
 }
-
